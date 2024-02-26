@@ -1,5 +1,5 @@
-import React, { useCallback } from "react";
-import { FlatList, View } from "react-native";
+import React, { useCallback, useEffect } from "react";
+import { Alert, FlatList, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
@@ -15,9 +15,9 @@ type Props = NativeStackScreenProps<RootStackParamList, "Home">;
 
 const Home = ({ route }: Props) => {
   const userId = route.key;
-  
+
   const { navigate } = useNavigation<StackNavigation>();
-  const { data, isLoading } = useUser(userId);
+  const { data, isLoading, error, refetch } = useUser(userId);
 
   const handleCardPress = useCallback(
     (intervalId: string) => {
@@ -25,6 +25,14 @@ const Home = ({ route }: Props) => {
     },
     [navigate]
   );
+
+  useEffect(() => {
+    if (error) {
+      Alert.alert("Sorry", "Error on fetch data", [
+        { text: "Retry", onPress: () => refetch() },
+      ]);
+    }
+  }, [error]);
 
   const renderCard = ({ score, ts, timeseries, id }: Interval) => {
     const heartRate = getRateFromArray(timeseries.heartRate);
