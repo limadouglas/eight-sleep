@@ -46,7 +46,6 @@ This template follows a very simple project structure:
 - `src`: This folder is the main container of all the code inside your application.
   - `assets`: Asset folder to store all images, vectors, etc.
   - `components`: Folder to store any common component that you use through your app (such as a generic button)
-  - `constants`: Folder to store any kind of constant that you have.
   - `navigation`: Folder to store the navigators.
   - `screens`: Folder that contains all your application screens/features.
     - `Screen`: Each screen should be stored inside its folder and inside it a file for its code and a separate one for the styles and tests.
