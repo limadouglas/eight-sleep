@@ -1,5 +1,5 @@
 
-## Eight Sleep App
+![Eight_Sleep_logo](https://github.com/limadouglas/eight-sleep/assets/21013545/a4e7c61c-ca19-4b8c-8741-e0a52e768aab)
 
 ## Demo
 ## IOS
