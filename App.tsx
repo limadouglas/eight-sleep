@@ -8,22 +8,11 @@ import { RootStack } from "@routes";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useFlipper } from "@react-navigation/devtools";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { queryConfig } from "@services/api/core/config";
+import { Colors } from "@theme";
 
 const App = () => {
-  // Create a react-query client
-  const queryClient = new QueryClient({
-    defaultOptions: {
-      queries: {
-        refetchOnWindowFocus: false,
-        refetchOnMount: false,
-        refetchOnReconnect: false,
-        retry: 2,
-        retryDelay: 1000,
-        staleTime: 5 * 60 * 1000,
-      },
-    },
-  });
-
+  const queryClient = new QueryClient(queryConfig);
   const navigationRef = useNavigationContainerRef();
 
   useFlipper(navigationRef);
@@ -32,7 +21,10 @@ const App = () => {
     <SafeAreaProvider style={{ flex: 1 }}>
       <NavigationContainer ref={navigationRef}>
         <QueryClientProvider client={queryClient}>
-          <StatusBar barStyle={"light-content"} backgroundColor={"black"} />
+          <StatusBar
+            barStyle={"light-content"}
+            backgroundColor={Colors.BLACK}
+          />
           <RootStack />
         </QueryClientProvider>
       </NavigationContainer>

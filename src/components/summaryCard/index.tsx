@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { styles } from "./styles";
 import { formatDate } from "@utils";
@@ -61,4 +61,4 @@ const SummaryCard = ({
   );
 };
 
-export default SummaryCard;
+export default memo(SummaryCard);

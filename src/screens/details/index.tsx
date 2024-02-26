@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { SafeAreaView, ScrollView, View } from "react-native";
 import { styles } from "./styles";
 
@@ -6,11 +6,7 @@ import { ChartSleepStages, ChartTemperature, ChartSleepTnt } from "@components";
 import { useUser } from "@services/api/hooks";
 import { RootStackParamList } from "@routes/RootStack";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import {
-  formatDate,
-  getIntervalById,
-} from "@utils";
-import { useNavigation } from "@react-navigation/native";
+import { formatDate, getIntervalById } from "@utils";
 import {
   useUserSleepStages,
   useUserSleepTnT,
@@ -19,7 +15,7 @@ import {
 
 type Props = NativeStackScreenProps<RootStackParamList, "Details">;
 
-const Details = ({ route }: Props) => {
+const Details = ({ route, navigation }: Props) => {
   const { id, intervalId } = route.params;
 
   const { data } = useUser(id);
@@ -29,7 +25,9 @@ const Details = ({ route }: Props) => {
   const { awake, out, light, deep } = useUserSleepStages(interval);
   const sleepTnT = useUserSleepTnT(interval);
 
-  useNavigation().setOptions({ title: formatDate(interval?.ts ?? "") });
+  useEffect(() => {
+    navigation.setOptions({ title: formatDate(interval?.ts ?? "") });
+  }, [navigation]);
 
   return (
     <SafeAreaView style={styles.container}>

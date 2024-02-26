@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { FlatList, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
@@ -14,14 +14,17 @@ import { styles } from "./styles";
 type Props = NativeStackScreenProps<RootStackParamList, "Home">;
 
 const Home = ({ route }: Props) => {
-  const navigation = useNavigation<StackNavigation>();
   const userId = route.key;
-
+  
+  const { navigate } = useNavigation<StackNavigation>();
   const { data, isLoading } = useUser(userId);
 
-  const handleCardPress = (intervalId: string) => {
-    navigation.navigate("Details", { intervalId, id: userId });
-  };
+  const handleCardPress = useCallback(
+    (intervalId: string) => {
+      navigate("Details", { intervalId, id: userId });
+    },
+    [navigate]
+  );
 
   const renderCard = ({ score, ts, timeseries, id }: Interval) => {
     const heartRate = getRateFromArray(timeseries.heartRate);
