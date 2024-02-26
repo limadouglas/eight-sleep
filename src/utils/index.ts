@@ -1,3 +1,4 @@
+import { Stage, UserData } from "@services/api/user/types";
 import dayjs from "dayjs";
 
 export const getRateFromArray = (arr: [string, number][]) =>
@@ -21,8 +22,8 @@ export const secondsToHour = (seconds: number) => {
 };
 
 export const groupByExactHourAndSumValues = (items?: [string, number][]) => {
-  if (!items) {
-    return;
+  if (!items || items.length <= 0) {
+    return [];
   }
 
   const result = {} as { [key: string]: number };
@@ -51,4 +52,32 @@ export const groupByExactHourAndSumValues = (items?: [string, number][]) => {
   });
 
   return groupedItems;
+};
+
+export const convertToAxiosArray = (
+  arr?: [string, number][] | { [key: string]: number }[]
+) => {
+  if (!arr || arr?.length <= 0) {
+    return [];
+  }
+
+  return arr.map((item) => ({
+    x: item[0],
+    y: item[1],
+  }));
+};
+
+export const groupStageByName = (stages?: Stage[], stageName?: string) => {
+  if (!stages || stages?.length <= 0) {
+    return;
+  }
+
+  return stages?.reduce(
+    (acc, stage) => (stage.stage === stageName ? acc + stage.duration : acc),
+    0
+  );
+};
+
+export const getIntervalById = (data?: UserData, id?: string) => {
+  return data?.intervals.find((interval) => interval.id === id);
 };

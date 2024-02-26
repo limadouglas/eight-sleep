@@ -12,11 +12,9 @@ import {
   VictoryTheme,
 } from "victory-native";
 import { styles } from "./styles";
+import { Colors } from "@theme";
+import { Axios } from "@types";
 
-interface Axios {
-  x: number | string;
-  y: number;
-}
 
 interface ChartSleepTnTProps {
   data?: Axios[];
@@ -37,17 +35,8 @@ const ChartSleepTnT = ({ data }: ChartSleepTnTProps) => {
           dependentAxis
           tickValues={data?.map((item) => item.y) ?? [1]}
           style={{
-            axis: {
-              stroke: "#000",
-            },
             grid: {
-              stroke: "none",
-            },
-            ticks: {
-              stroke: "none",
-            },
-            tickLabels: {
-              fill: "#000",
+              stroke: Colors.DARK_GREY,
             },
           }}
         />
@@ -55,17 +44,8 @@ const ChartSleepTnT = ({ data }: ChartSleepTnTProps) => {
           fixLabelOverlap
           tickFormat={(t) => formatHour(t)}
           style={{
-            axis: {
-              stroke: "#000",
-            },
             grid: {
-              stroke: "none",
-            },
-            ticks: {
-              stroke: "none",
-            },
-            tickLabels: {
-              fill: "#000",
+              stroke: Colors.DARK_GREY,
             },
           }}
         />

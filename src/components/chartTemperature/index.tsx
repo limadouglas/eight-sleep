@@ -15,6 +15,7 @@ import {
 } from "victory-native";
 import { styles } from "./styles";
 import { Colors } from "@theme";
+import { Axios } from "@types";
 
 const legend = [
   {
@@ -27,12 +28,7 @@ const legend = [
   },
 ];
 
-interface Axios {
-  x: number;
-  y: number;
-}
-
-interface ChartTemperatureProps {
+export interface ChartTemperatureProps {
   dataBed?: Axios[];
   dataRoom?: Axios[];
 }
@@ -55,8 +51,7 @@ const ChartTemperature = ({ dataBed, dataRoom }: ChartTemperatureProps) => {
           orientation="horizontal"
           style={{
             labels: {
-              fill: Colors.BLACK,
-              fillOpacity: 0.8,
+              fill: Colors.WHITE,
             },
           }}
         />
@@ -65,36 +60,18 @@ const ChartTemperature = ({ dataBed, dataRoom }: ChartTemperatureProps) => {
           domain={{ y: [15, 40] }}
           tickFormat={(t) => `${t} °C`}
           style={{
-            axis: {
-              stroke: "#000",
-            },
             grid: {
-              stroke: "none",
-            },
-            ticks: {
-              stroke: "none",
-            },
-            tickLabels: {
-              fill: "#000",
+              stroke: Colors.DARK_GREY,
             },
           }}
         />
         <VictoryAxis
-          fixLabelOverlap
           style={{
-            axis: {
-              stroke: "#000",
-            },
             grid: {
-              stroke: "none",
-            },
-            ticks: {
-              stroke: "none",
-            },
-            tickLabels: {
-              fill: "#000",
+              stroke: Colors.DARK_GREY,
             },
           }}
+          fixLabelOverlap
           tickFormat={(date: Date) => formatHour(date)}
         />
         <VictoryGroup data={dataBed} color="orange">

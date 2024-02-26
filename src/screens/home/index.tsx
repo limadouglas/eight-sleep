@@ -20,7 +20,6 @@ const Home = ({ route }: Props) => {
   const { data, isLoading } = useUser(userId);
 
   const handleCardPress = (intervalId: string) => {
-    console.log("handleCardPress", intervalId, route?.key);
     navigation.navigate("Details", { intervalId, id: userId });
   };
 

@@ -8,14 +8,10 @@ import {
   VictoryTheme,
 } from "victory-native";
 
-import { Colors } from "@theme";
 import { ChartTitle } from "@components";
 import { styles } from "./styles";
-
-interface Axios {
-  x: number | string;
-  y?: number;
-}
+import { Colors } from "@theme";
+import { Axios } from "@types";
 
 interface ChartSleepStagesProps {
   dataAwake?: Axios;
@@ -37,8 +33,7 @@ const ChartSleepStages = ({
       <VictoryChart
         animate={{ duration: 500 }}
         height={250}
-        // padding={{ top: 30, bottom: 30, left: 50, right: 60 }}
-        domainPadding={{ x: 20, y: 50 }}
+        padding={{ top: 30, bottom: 30, left: 50, right: 60 }}
         theme={VictoryTheme.material}
       >
         <VictoryAxis
@@ -46,39 +41,20 @@ const ChartSleepStages = ({
           fixLabelOverlap
           tickFormat={(t) => secondsToHour(t)}
           style={{
-            axis: {
-              stroke: Colors.BLACK,
-            },
             grid: {
-              stroke: "none",
-            },
-            ticks: {
-              stroke: "none",
-            },
-            tickLabels: {
-              fill: Colors.BLACK,
+              stroke: Colors.DARK_GREY,
             },
           }}
         />
         <VictoryAxis
           style={{
-            axis: {
-              stroke: Colors.BLACK,
-            },
             grid: {
-              stroke: "none",
-            },
-            ticks: {
-              stroke: "none",
-            },
-            tickLabels: {
-              fill: Colors.BLACK,
+              stroke: Colors.DARK_GREY,
             },
           }}
         />
         <VictoryBar
           alignment="start"
-          x="Month"
           style={{ data: { fill: "green", width: 25 } }}
           data={[dataAwake, dataOut, dataLight, dataDeep]}
         />
