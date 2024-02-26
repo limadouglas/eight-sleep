@@ -24,6 +24,7 @@
 - [react-navigation](https://reactnavigation.org/) navigation library.
 - [victory-native](https://commerce.nearform.com/open-source/victory/) for charts.
 - [dayjs](https://commerce.nearform.com/open-source/victory/) for date management.
+- [flipper](https://fbflipper.com/docs/features/react-native/) for debug.
 - [jest](https://facebook.github.io/jest/) and [react-native-testing-library](https://callstack.github.io/react-native-testing-library/) for testing.
 
 ## Usage
