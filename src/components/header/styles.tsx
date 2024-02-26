@@ -1,3 +1,4 @@
+import { Colors } from "@theme";
 import { Platform, StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
@@ -6,14 +7,14 @@ export const styles = StyleSheet.create({
     flex: 1,
     maxHeight: 90,
     paddingHorizontal: 50,
-    backgroundColor: "black",
+    backgroundColor: Colors.BLACK,
     justifyContent: "center",
     alignItems: "center",
   },
   image: {
     width: 100,
     height: 50,
-    backgroundColor: "black",
+    backgroundColor: Colors.BLACK,
     resizeMode: "contain",
   },
 });

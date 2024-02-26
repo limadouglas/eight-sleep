@@ -4,6 +4,7 @@ import { styles } from "./styles";
 import { formatDate } from "@utils";
 import { Icons } from "@assets";
 import { IconsType } from "@assets/icons";
+import { Colors } from "@theme";
 
 interface SummaryCard {
   id: string;
@@ -22,7 +23,7 @@ const renderItemCard = (
   const Icon = Icons[iconName];
   return (
     <View style={[styles.cardItem, showSeparator && styles.separator]}>
-      <Icon fill={"white"} height={30} width={30} />
+      <Icon fill={Colors.WHITE} height={30} width={30} />
       <Text style={styles.cardItemText}>{text}</Text>
     </View>
   );

@@ -1,17 +1,17 @@
+import { Colors } from "@theme";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
     borderRadius: 8,
-
-    backgroundColor: "#3b3b3b",
+    backgroundColor: Colors.GREY_TRANSPARENT_7,
     minHeight: 50,
     paddingHorizontal: 20,
     paddingBottom: 20,
     paddingTop: 10,
     width: "100%",
-    color: "white",
+    color: Colors.WHITE,
   },
   itemsWrapper: {
     justifyContent: "space-between",
@@ -27,17 +27,17 @@ export const styles = StyleSheet.create({
     width: "100%",
   },
   cardItemText: {
-    color: "white",
+    color: Colors.WHITE,
     marginTop: 10,
   },
 
   dateText: {
     fontSize: 12,
-    color: "white",
+    color: Colors.WHITE,
     marginBottom: 20,
   },
   separator: {
     borderRightWidth: 1,
-    borderRightColor: "white",
+    borderRightColor: Colors.WHITE,
   },
 });

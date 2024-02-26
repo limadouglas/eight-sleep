@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Details } from "@screens";
 import TabViewStack from "./TabViewStack";
 import { NavigationProp } from "@react-navigation/native";
+import { Colors } from "@theme";
 
 export type RootStackParamList = {
   Home: undefined;
@@ -22,9 +23,9 @@ const RootStack = () => {
       />
       <Stack.Screen
         options={{
-          headerStyle: { backgroundColor: "black" },
+          headerStyle: { backgroundColor: Colors.BLACK },
           headerBackTitleVisible: false,
-          headerTintColor: "white",
+          headerTintColor: Colors.WHITE,
         }}
         name="Details"
         component={Details}

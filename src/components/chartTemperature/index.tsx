@@ -14,6 +14,7 @@ import {
   VictoryTheme,
 } from "victory-native";
 import { styles } from "./styles";
+import { Colors } from "@theme";
 
 const legend = [
   {
@@ -54,7 +55,7 @@ const ChartTemperature = ({ dataBed, dataRoom }: ChartTemperatureProps) => {
           orientation="horizontal"
           style={{
             labels: {
-              fill: "black",
+              fill: Colors.BLACK,
               fillOpacity: 0.8,
             },
           }}

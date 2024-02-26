@@ -1,3 +1,4 @@
+import { Colors } from "@theme";
 import { Dimensions, StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
@@ -6,15 +7,15 @@ export const styles = StyleSheet.create({
     width: Dimensions.get("window").width,
   },
   tabBarIndicator: {
-    backgroundColor: "white",
+    backgroundColor: Colors.WHITE,
   },
   tabBar: {
-    backgroundColor: "black",
-    color: "white",
+    backgroundColor: Colors.BLACK,
+    color: Colors.WHITE,
     fontSize: 14,
     fontWeight: "bold",
   },
   tabView: {
-    backgroundColor: "black",
+    backgroundColor: Colors.BLACK
   },
 });
