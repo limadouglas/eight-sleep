@@ -3,10 +3,11 @@ import dayjs from "dayjs";
 export const getRateFromArray = (arr: [string, number][]) =>
   Math.round(arr.reduce((acc, rate) => acc + rate[1], 0) / arr.length);
 
-export const formatDate = (date?: Date | string) => {
+export const formatDate = (date: Date | string) => {
   const newDate = dayjs(date);
   return newDate.format("MMMM D, YYYY");
 };
+
 export const formatHour = (date: Date | string) => {
   const newDate = dayjs(date);
   return newDate.format("hh A");
@@ -24,18 +25,19 @@ export const groupByExactHourAndSumValues = (items?: [string, number][]) => {
     return;
   }
 
-  const result = {};
+  const result = {} as { [key: string]: number };
 
   items?.forEach(([timestamp, value]) => {
     const date = new Date(timestamp);
-    const key = new Date(
-      Date.UTC(
-        date.getUTCFullYear(),
-        date.getUTCMonth(),
-        date.getUTCDate(),
-        date.getUTCHours()
-      )
-    ).toISOString();
+    const key =
+      new Date(
+        Date.UTC(
+          date.getUTCFullYear(),
+          date.getUTCMonth(),
+          date.getUTCDate(),
+          date.getUTCHours()
+        )
+      ).toISOString() ?? "";
 
     if (!result[key]) {
       result[key] = 0;
@@ -43,9 +45,7 @@ export const groupByExactHourAndSumValues = (items?: [string, number][]) => {
     result[key] += value;
   });
 
-  // Convert the result object into an array of arrays
   const groupedItems = Object.keys(result).map((key) => {
-    // Adjust the key to set minutes and seconds to zero
     const adjustedKey = key.substring(0, 13) + ":00:00.000Z";
     return [adjustedKey, result[key]];
   });

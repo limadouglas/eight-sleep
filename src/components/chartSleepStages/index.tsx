@@ -37,7 +37,8 @@ const ChartSleepStages = ({
       <VictoryChart
         animate={{ duration: 500 }}
         height={250}
-        padding={{ top: 30, bottom: 30, left: 50, right: 60 }}
+        // padding={{ top: 30, bottom: 30, left: 50, right: 60 }}
+        domainPadding={{ x: 20, y: 50 }}
         theme={VictoryTheme.material}
       >
         <VictoryAxis
@@ -76,6 +77,8 @@ const ChartSleepStages = ({
           }}
         />
         <VictoryBar
+          alignment="start"
+          x="Month"
           style={{ data: { fill: "green", width: 25 } }}
           data={[dataAwake, dataOut, dataLight, dataDeep]}
         />

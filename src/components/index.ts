@@ -1,5 +1,6 @@
 export { default as Header } from "./header";
 export { default as SummaryCard } from "./summaryCard";
+export type { SummaryCardProps } from "./summaryCard";
 export { default as LoadingIndicator } from "./loadingIndicator";
 export { default as ChartTemperature } from "./chartTemperature";
 export { default as ChartSleepStages } from "./chartSleepStages";

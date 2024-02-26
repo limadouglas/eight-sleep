@@ -6,13 +6,14 @@ import { Icons } from "@assets";
 import { IconsType } from "@assets/icons";
 import { Colors } from "@theme";
 
-interface SummaryCard {
+export interface SummaryCardProps {
   id: string;
   date: string;
   score: number;
   respiratoryRate: number;
   heartRate: number;
   onPress: (id: string) => void;
+  cardTestId?: string;
 }
 
 const renderItemCard = (
@@ -36,13 +37,18 @@ const SummaryCard = ({
   respiratoryRate,
   heartRate,
   onPress,
-}: SummaryCard) => {
+  cardTestId,
+}: SummaryCardProps) => {
   const handleCardPress = () => {
     onPress(id);
   };
 
   return (
-    <TouchableOpacity onPress={handleCardPress} style={styles.container}>
+    <TouchableOpacity
+      testID={cardTestId}
+      onPress={handleCardPress}
+      style={styles.container}
+    >
       <View>
         <Text style={styles.dateText}>{formatDate(date)}</Text>
       </View>
