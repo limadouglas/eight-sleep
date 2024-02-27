@@ -51,10 +51,9 @@ This template follows a very simple project structure:
   - `navigation`: Folder to store the navigators.
   - `screens`: Folder that contains all your application screens/features.
     - `Screen`: Each screen should be stored inside its folder and inside it a file for its code and a separate one for the styles and tests.
-      - `Screen.js`
-      - `Screen.styles.js`
-      - `Screen.test.js`
+      - `Screen.tsx`
+      - `Screen.styles.ts`
   - `services`: Folder to store your services(api).
   - `theme`: Folder to store all the styling concerns related to the application theme.
-  - `App.js`: Main component that starts your whole app.
-  - `index.js`: Entry point of your application as per React-Native standards.
+- `App.tsx`: Main component that starts your whole app.
+- `index.js`: Entry point of your application as per React-Native standards.
