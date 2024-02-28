@@ -1,1 +1,1 @@
-export type { Axios } from "./ui";
+export type { Axios, ObjKeyValue, ArrKeyValue } from "./ui";

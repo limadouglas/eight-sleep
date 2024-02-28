@@ -54,7 +54,7 @@ const ChartSleepStages = ({
           }}
         />
         <VictoryBar
-          alignment="start"
+          alignment="middle"
           style={{ data: { fill: "green", width: 25 } }}
           data={[dataAwake, dataOut, dataLight, dataDeep]}
         />

@@ -6,6 +6,7 @@ import {
   groupStageByName,
 } from "@utils";
 import { Interval } from "../user/types";
+import { ArrKeyValue } from "@types";
 
 export const useUser = (id: string) => {
   return useQuery({
@@ -65,10 +66,7 @@ export const useUserSleepTnT = (interval?: Interval) => {
   }
 
   const sleepTnT = convertToAxiosArray(
-    groupByExactHourAndSumValues(interval?.timeseries?.tnt) as [
-      string,
-      number
-    ][]
+    groupByExactHourAndSumValues(interval?.timeseries?.tnt) as ArrKeyValue
   );
 
   return sleepTnT;

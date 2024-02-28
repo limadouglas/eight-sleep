@@ -1,7 +1,8 @@
 import { Stage, UserData } from "@services/api/user/types";
+import { ArrKeyValue, ObjKeyValue } from "@types";
 import dayjs from "dayjs";
 
-export const getRateFromArray = (arr: [string, number][]) =>
+export const getRateFromArray = (arr: ArrKeyValue) =>
   Math.round(arr.reduce((acc, rate) => acc + rate[1], 0) / arr.length);
 
 export const formatDate = (date: Date | string) => {
@@ -21,42 +22,27 @@ export const secondsToHour = (seconds: number) => {
   return `${hour}:${minutes.toString()} h `;
 };
 
-export const groupByExactHourAndSumValues = (items?: [string, number][]) => {
+export const groupByExactHourAndSumValues = (items?: ArrKeyValue) => {
   if (!items || items.length <= 0) {
     return [];
   }
 
-  const result = {} as { [key: string]: number };
+  const groupedItemsByDateObject = {} as ObjKeyValue;
 
   items?.forEach(([timestamp, value]) => {
-    const date = new Date(timestamp);
-    const key =
-      new Date(
-        Date.UTC(
-          date.getUTCFullYear(),
-          date.getUTCMonth(),
-          date.getUTCDate(),
-          date.getUTCHours()
-        )
-      ).toISOString() ?? "";
-
-    if (!result[key]) {
-      result[key] = 0;
+    const key = timestamp.substring(0, 13) + ":00:00.000Z";
+    if (!groupedItemsByDateObject[key]) {
+      groupedItemsByDateObject[key] = 0;
     }
-    result[key] += value;
+    groupedItemsByDateObject[key] += value;
   });
 
-  const groupedItems = Object.keys(result).map((key) => {
-    const adjustedKey = key.substring(0, 13) + ":00:00.000Z";
-    return [adjustedKey, result[key]];
-  });
+  const groupedItemsByDateArray = Object.entries(groupedItemsByDateObject);
 
-  return groupedItems;
+  return groupedItemsByDateArray;
 };
 
-export const convertToAxiosArray = (
-  arr?: [string, number][] | { [key: string]: number }[]
-) => {
+export const convertToAxiosArray = (arr?: ArrKeyValue | ObjKeyValue[]) => {
   if (!arr || arr?.length <= 0) {
     return [];
   }
