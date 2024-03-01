@@ -3,15 +3,11 @@ import { SafeAreaView, ScrollView, View } from "react-native";
 import { styles } from "./styles";
 
 import { ChartSleepStages, ChartTemperature, ChartSleepTnt } from "@components";
-import { useUser } from "@services/api/hooks";
 import { RootStackParamList } from "@routes/RootStack";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { formatDate, getIntervalById } from "@utils";
-import {
-  useUserSleepStages,
-  useUserSleepTnT,
-  useUserTempAxios,
-} from "@services/api/hooks/useUser";
+import { useUser, useUserSleepStages, useUserSleepTnT, useUserTempAxios } from "@hooks";
+
 
 type Props = NativeStackScreenProps<RootStackParamList, "Details">;
 

@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import { getUserData } from "../user";
 import {
   convertToAxiosArray,
   groupByExactHourAndSumValues,
   groupStageByName,
 } from "@utils";
-import { Interval } from "../user/types";
 import { ArrKeyValue } from "@types";
+import { Interval } from "@services/api/user/types";
+import { getUserData } from "@services/api";
 
 export const useUser = (id: string) => {
   return useQuery({

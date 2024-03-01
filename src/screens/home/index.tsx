@@ -3,13 +3,13 @@ import { Alert, FlatList, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-import { useUser } from "@services/api/hooks";
 import { Interval } from "@services/api/user/types";
 import { SummaryCard, LoadingIndicator } from "@components";
 import { getRateFromArray } from "@utils";
 import { RootStackParamList, StackNavigation } from "@routes/RootStack";
 
 import { styles } from "./styles";
+import { useUser } from "@hooks";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Home">;
 

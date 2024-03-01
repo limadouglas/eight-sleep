@@ -1,3 +1,2 @@
-export {default as core} from './core';
-export {default as hooks} from './hooks';
-export {getUserData} from './user';
+export { default as core } from "./core";
+export { getUserData } from "./user";

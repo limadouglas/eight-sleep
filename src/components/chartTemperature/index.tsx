@@ -19,11 +19,11 @@ import { Axios } from "@types";
 
 const legend = [
   {
-    name: "bed",
+    name: "Bed",
     symbol: { fill: "orange" },
   },
   {
-    name: "room",
+    name: "Room",
     symbol: { fill: "green" },
   },
 ];
