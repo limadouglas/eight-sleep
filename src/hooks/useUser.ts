@@ -23,8 +23,8 @@ export const useUserTempAxios = (interval?: Interval) => {
     };
   }
 
-  const tempRoomData = convertToAxiosArray(interval?.timeseries.tempBedC);
-  const tempBedData = convertToAxiosArray(interval?.timeseries.tempRoomC);
+  const tempBedData = convertToAxiosArray(interval?.timeseries.tempBedC);
+  const tempRoomData = convertToAxiosArray(interval?.timeseries.tempRoomC);
 
   return {
     tempBed: tempRoomData,
