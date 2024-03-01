@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {
   NavigationState,
+  Route,
   SceneMap,
   SceneRendererProps,
   TabBar,
@@ -25,7 +26,7 @@ const TabViewStack = () => {
   const [routes] = useState(screensProps);
 
   const renderTabBar = (
-    props: SceneRendererProps & { navigationState: NavigationState<T> }
+    props: SceneRendererProps & { navigationState: NavigationState<Route> }
   ) => (
     <TabBar
       {...props}
